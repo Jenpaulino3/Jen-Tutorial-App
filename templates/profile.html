@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body_block %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+
+<div class="row page-header">
+	<div class="col-xs-12 col-md-6">
+		{% if profile.picture %}
+			<img src="{{profile.picture.url}}" class="img-responsive img-circle" style='width:300px;'>
+		{% else %}
+		<img src="https://i.ytimg.com/vi/0dsQq_bnk9A/maxresdefault.jpg" class="img-responsive img-circle" style="width:150px;">
+		{% endif %}
+	</div>
+	<div class="col-xs-12 col-md-6">
+		<h1><b><center>{{profile.user.username}}</b></h1></center>
+		<br>
+		{% if profile.website %}
+		<h3>Website : <a href="{{profile.website}}">{{profile.website}}</a></h3>
+		<br>
+		{% endif %}
+		{% if profile.user == user %}
+		<a href="{% url 'edit_profile' profile.user.username %}">Edit Your Profile</a> or 
+		<a href="{% url 'settings' %}">Change Password </a>
+		{% endif %}
+	</div>
+</div>
+<div class='row'>
+	<div class="col-xs-12 col-md-6">
+		<h3>Pages Added:</h3>
+		{% if pages %}
+		<ul>
+			{% for page in pages %}
+			<div id='page'>
+					<li><a href="{% url 'goto' %}?page_id={{page.id}}">{{page.title}}</a>
+					{% if page.views > 1 %}
+						{{ page.views }} views
+					{% elif page.views == 1 %}
+						{{ page.views }} view
+					{% endif %}
+					</li>
+			</div>
+			{% endfor %}
+		</ul>
+		{% else %}
+		<strong>No pages currently added.</strong>
+		{% endif %}
+	</div>
+	<div class="col-xs-12 col-md-6">
+		<h2><b>About - {{profile.user.username}}</h2></b>
+		{% if profile.bio %}
+		<center><p>{{profile.bio}}</p></center>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}

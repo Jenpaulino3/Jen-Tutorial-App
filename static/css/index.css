@@ -1,0 +1,26 @@
+html, body {
+	text-align: center;
+}
+
+img {
+	height: 200px;
+	margin-bottom: 20px;
+}
+
+.panel-primary>.panel-heading {
+	background-color:#3F3F3F;
+	border-color:#FF0092;
+}
+.panel-title {
+	font-weight: bold;
+	font-size: 18px;
+}
+.list-group a {
+	color: #000;
+	text-decoration: underline;
+	font-size: 14px;
+	text-align: center;
+}
+.list-group a:hover {
+	color: #E5006E;
+}

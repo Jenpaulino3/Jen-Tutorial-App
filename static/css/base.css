@@ -1,0 +1,50 @@
+html, body {
+	color: #000;
+	font-family: 'Lato', serif;
+}
+.navbar {
+	-webkit-box-shadow: 0 8px 6px -6px #AB0052;
+    -moz-box-shadow: 0 8px 6px -6px #AB0052;
+    box-shadow: 0 8px 6px -6px #AB0052;
+
+}
+.navbar-inverse {
+	background-color: #3F3F3F;
+}
+.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, 
+.container>.navbar-collapse, .container>.navbar-header {
+	background-color:#3F3F3F;
+}	
+.navbar .navbar-brand {
+	color: #fff;
+	font-size: 24px;
+	font-weight: bold;
+}
+.navbar-inverse .navbar-nav>li>a {
+	color: #FFF;
+	font-size: 18px;
+}
+.navbar-inverse .navbar-nav>li>a:hover {
+	color: #AFAFAF;
+}
+.page-header {
+	color: #000;
+}
+.sidebar {
+	background-color: #efefef;
+}
+.nav-sidebar a {
+	color: #3F3F3F;
+}
+.nav-sidebar a:hover {
+	color: #AFAFAF;
+}
+.nav nav-list {
+	color: #000;
+}
+input {
+	color: #000;
+}
+p {
+	font-size: 20px; 	
+}
