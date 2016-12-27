@@ -29,7 +29,7 @@ def index (request):
 	page_list = Page.objects.order_by('-views')[:5]
 	context_dict['pages'] = page_list
 
-	# visits = int(request.COOKIES.get('visits', '1')) #get function will go in the dictionary and if theres a cookie it won't do anything if it does eist it will create one
+	# visits = int(request.COOKIES.get('visits', '1')) #get function will go in the dictionary and if theres a cookie it won't do anything if it doesn't exist it will create one
 	visits = request.session.get ('visits') #look find session id that will get info from server and see if visits is a keyword in that dictionary
 	
 	if not visits: 
