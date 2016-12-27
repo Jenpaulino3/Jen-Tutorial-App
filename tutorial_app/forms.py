@@ -57,14 +57,12 @@ class ContactForm(forms.Form):
 		body = self.cleaned_data['body']
 
 		message = '''
-				New Message from {name} @ {email}
+				New Message from {name} @ 
+				{email}
 				Subject: {subject}
 				Message:
 				{body}
-				'''.format(name=name, 
-					email=email, 
-					subject=subject, 
-					body=body)
+				'''.format(name=name, email=email, subject=subject, body=body)
 
 		email_msg = EmailMessage('New Contact Form Submission',
 					message,

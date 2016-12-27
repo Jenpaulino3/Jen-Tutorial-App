@@ -205,7 +205,7 @@ def user_logout(request):
 def track_url(request):
 	page_id = None
 
-	url = '/' #when you go to the homepage its a slash
+	url = '/' # when you go to the homepage its a slash
 
 	if request.method == 'GET':
 		if 'page_id' in request.GET:

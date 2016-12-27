@@ -10,7 +10,8 @@ class UserProfile(models.Model):
 	picture = models.ImageField(upload_to='profile_images', blank=True)
 	bio = models.TextField(blank=True)
 
-	def __unicode__(self):
+	# Overreide the unicode to return something meaningful
+	def __unicode__(self): 
 		return self.user.username
 
 class Category(models.Model):
