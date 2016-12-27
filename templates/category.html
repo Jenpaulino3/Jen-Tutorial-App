@@ -50,7 +50,7 @@
 		</div>
 		
 		{% if user.is_authenticated %}
-		<a href="{% url 'add-page' category.slug %}">Add Page</a>
+		<a href="{% url 'add_page' category.slug %}">Add Page</a>
 		{% endif %}
 	{% else %}
 		<p>The specified category {{ category.name }} does not exist </p>
