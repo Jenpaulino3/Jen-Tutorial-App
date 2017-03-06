@@ -61,6 +61,15 @@ TEMPLATE_DIRS = (
     TEMPLATE_PATH,
     )
 
+STATIC_PATH = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = (
+    STATIC_PATH,
+    )
+
+MEDIA_PATH = os.path.join(BASE_DIR, 'media')
+MEDIAFILES_DIRS =(
+    MEDIA_PATH,
+    )
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
@@ -95,33 +104,23 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'jenpaulino3@gmail.com'
 EMAIL_HOST_PASSWORD = os.environ.get('MAIL_PASS')
 
-if DEBUG:
-    STATIC_URL = '/static/'
-    MEDIA_URL = '/media/'
+# # if DEBUG:
+# STATIC_URL = '/static/'
+# MEDIA_URL = '/media/'
 
-if not DEBUG:
-    AWS_STORAGE_BUCKET_NAME = 'jenniferstutorialapp'
-    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+# if not DEBUG:
+AWS_STORAGE_BUCKET_NAME = 'jenniferstutorialapp'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-    STATICFILES_LOCATION = 'static'
-    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-    STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+STATICFILES_LOCATION = 'static'
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 
-    MEDIAFILES_LOCATION = 'media'
-    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-    MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-
-    STATIC_PATH = os.path.join(BASE_DIR, 'static')
-    STATICFILES_DIRS = (
-        STATIC_PATH,
-        )
-
-    MEDIA_PATH = os.path.join(BASE_DIR, 'media')
-    MEDIAFILES_DIRS =(
-        MEDIA_PATH,
-        )
+MEDIAFILES_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 
 AWS_HEADERS = {
     'Access-Control-Allow-Origin' : '*'
