@@ -104,11 +104,11 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'jenpaulino3@gmail.com'
 EMAIL_HOST_PASSWORD = os.environ.get('MAIL_PASS')
 
-if DEBUG:
+if not DEBUG:
     STATIC_URL = '/static/'
     MEDIA_URL = '/media/'
 
-if not DEBUG:
+if DEBUG:
     AWS_STORAGE_BUCKET_NAME = 'jenniferstutorialapp'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
