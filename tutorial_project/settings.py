@@ -66,12 +66,10 @@ STATICFILES_DIRS = (
     STATIC_PATH,
     )
 
-# MEDIA_PATH = os.path.join(BASE_DIR, 'media')
-# MEDIAFILES_DIRS =(
-#     MEDIA_PATH,
-#     )
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_PATH = os.path.join(BASE_DIR, 'media')
+MEDIAFILES_DIRS =(
+    MEDIA_PATH,
+    )
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
@@ -106,9 +104,9 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'jenpaulino3@gmail.com'
 EMAIL_HOST_PASSWORD = os.environ.get('MAIL_PASS')
 
-# # if DEBUG:
-# STATIC_URL = '/static/'
-# MEDIA_URL = '/media/'
+# if DEBUG:
+#     STATIC_URL = '/static/'
+#     MEDIA_URL = '/media/'
 
 # if not DEBUG:
 AWS_STORAGE_BUCKET_NAME = 'jenniferstutorialapp'
