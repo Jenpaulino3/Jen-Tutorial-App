@@ -9,8 +9,4 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^', include('tutorial_app.urls')),
-) 	
-
-if DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
