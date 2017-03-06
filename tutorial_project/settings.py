@@ -66,10 +66,12 @@ STATICFILES_DIRS = (
     STATIC_PATH,
     )
 
-MEDIA_PATH = os.path.join(BASE_DIR, 'media')
-MEDIAFILES_DIRS =(
-    MEDIA_PATH,
-    )
+# MEDIA_PATH = os.path.join(BASE_DIR, 'media')
+# MEDIAFILES_DIRS =(
+#     MEDIA_PATH,
+#     )
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
