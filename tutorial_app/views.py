@@ -82,9 +82,11 @@ def category(request, category_name_slug):
 	context_dict['query'] = None
 
 	if request.method == 'POST':
-		query = request.POST['query'].strip()
+
+		query = request.POST.get('query', None)
 
 		if query:
+			query = query.strip()
 			result_list = run_query(query)
 			context_dict['result_list'] = result_list
 			context_dict['query'] = query
@@ -103,14 +105,14 @@ def category(request, category_name_slug):
 
 @login_required
 def add_category(request):
-	if request.method == 'POST': #requests are all caps
+	if request.method == 'POST': # All requests are caps
 		form = CategoryForm(request.POST)
 		if form.is_valid():
 			cat = form.save(commit=False)
 			cat.user = request.user
 			cat.save()
 			
-			return index(request) #so if the user fills out the form it will do the request and redirect the user
+			return index(request) # If the user fills out the form it will do the request and redirect the user
 		else: 
 			print form.errors
 	else: 
@@ -224,16 +226,16 @@ def user_profile(request, user_username):
 	context_dict = {}
 	user = User.objects.get(username=user_username)
 	profile = UserProfile.objects.get(user=user)
-	context_dict['profile'] = profile
+	context_dict['user_profile'] = profile
 	context_dict['pages'] = Page.objects.filter(user=user)
 
-	return	render(request, 'profile.html', context_dict)
+	return render(request, 'profile.html', context_dict)
 
 @login_required
 def edit_profile(request, user_username):
 	profile = get_object_or_404(UserProfile, user__username=user_username)
 	website = profile.website
-	pic = profile.picture
+	picture = profile.picture
 	bio = profile.bio
 	if request.user != profile.user:
 		return HttpResponse('Access Denied')
@@ -252,11 +254,11 @@ def edit_profile(request, user_username):
 				profile.bio = bio
 
 			if 'picture' in request.FILES:
-				print 'pic found'
+				print 'picture found'
 				profile.picture = request.FILES['picture']
 			else:
 				print 'not found'
-				profile.picture = pic 
+				profile.picture = picture 
 
 			profile.save()
 

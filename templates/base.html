@@ -34,7 +34,7 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="{% url 'about' %}">About Us</a></li>
-					<li><a href="{% url 'contact' %}">Contact Us</a></li>
+					
 					{% if user.is_authenticated %}
 					<li><a href="{% url 'add-category' %}">Add Category</a></li>
 					<li><a href="{% url 'profile' user.username %}">{{user.username}}'s Profile</a></li>
@@ -43,6 +43,7 @@
 					<li><a href="{% url 'login' %}">Login</a></li>
 					<li><a href="{% url 'register' %}">Register</a></li>
 					{% endif %}
+					<li><a href="{% url 'contact' %}">Contact Us</a></li>
 				</ul>
 			</div>
 		</div>

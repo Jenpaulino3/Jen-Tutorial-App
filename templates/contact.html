@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load extras %}
-
-{% block title %} Contact Us {% endblock %}
-
+<head>
+  <title>{% block title %}Contact{% endblock %}</title>
+</head>
 {% block body_block %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
 
+<link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}"
+
+<div class="container">
 	<h1 class="form-signin-heading">Contact Us</h1>
 	<form class="form-signin" id="page_form" method='post' action='/contact/'>
 		<h3 class="form-signin-heading">Contact</h3>
@@ -27,4 +29,6 @@
 
 		<button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">Contact</button>
 	</form>
+</div>
+
 {% endblock %}

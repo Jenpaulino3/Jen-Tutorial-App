@@ -5,27 +5,30 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
 
+{% if user.is_authenticated or request.user.is_superuser %}
+
 <div class="row page-header">
 	<div class="col-xs-12 col-md-6">
 		{% if profile.picture %}
-			<img src="" class="img-responsive img-circle" style='width:300px;'>
+			<img src="{{profile.picture.url}}" class="img-responsive img-circle" style="width:300px;">
 		{% else %}
-		<img src="https://i.ytimg.com/vi/0dsQq_bnk9A/maxresdefault.jpg" class="img-responsive img-circle" style="width:150px;">
+			<img src="https://dotnettips.files.wordpress.com/2014/04/the-code-is-right1.png" class="img-responsive img-circle" style="width:150px;">
 		{% endif %}
 	</div>
 	<div class="col-xs-12 col-md-6">
-		<h1><b><center>{{profile.user.username}}</b></h1></center>
+		<h1><b><center>{{user.username}}</b></h1></center>
 		<br>
 		{% if profile.website %}
-		<h3>Website : <a href="{{profile.website}}">{{profile.website}}</a></h3>
+			<h3>Website : <a href="{{profile.website}}">{{profile.website}}</a></h3>
 		<br>
 		{% endif %}
-		{% if profile.user == user %}
-		<a href="{% url 'edit_profile' profile.user.username %}">Edit Your Profile</a> or 
-		<a href="{% url 'settings' %}">Change Password </a>
-		{% endif %}
+
+			<a href="{% url 'edit_profile' user %}">Edit Your Profile</a> or 
+			<a href="{% url 'settings' %}">Change Password </a>
+
 	</div>
 </div>
+
 <div class='row'>
 	<div class="col-xs-12 col-md-6">
 		<h3>Pages Added:</h3>
@@ -48,10 +51,14 @@
 		{% endif %}
 	</div>
 	<div class="col-xs-12 col-md-6">
-		<h2><b>About - {{profile.user.username}}</h2></b>
+		<h2><b>About</h2></b>
 		{% if profile.bio %}
-		<center><p>{{profile.bio}}</p></center>
+			<h3>Bio</h3>
+			<center><p>{{profile.bio}}</p></center>
 		{% endif %}
 	</div>
 </div>
+
+{% endif %}
+
 {% endblock %}

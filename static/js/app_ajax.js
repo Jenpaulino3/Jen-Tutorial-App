@@ -1,6 +1,8 @@
 $(document).ready(function(){
 
-	//like buton
+
+
+	//like button
 
 	$('#likes').click(function(){
 		var cat_id;
@@ -20,7 +22,7 @@ $(document).ready(function(){
 			$('#cats').html(data);
 		});
 	});
-	
+
 
 	$('.tutorial-add').click(function(){
 		var cat_id = $(this).attr("data-catid");
@@ -29,10 +31,16 @@ $(document).ready(function(){
 		var user = $(this).attr("data-user");
 		var me = $(this);
 
-		$.get('/auto_add_page/', {category_id : cat_id, url : url, title : title, user : user}, function(data){
-			$('#pages').html(data);
-			me.hide();
-		});
+		$.get('/auto_add_page/', 
+				{category_id : cat_id, 
+				 url : url, 
+				 title : title, 
+				 user : user},
+				 function(data){
+				 	$('#pages').html(data);
+				 	me.hide();
 
+				 });
 	});
+
 });

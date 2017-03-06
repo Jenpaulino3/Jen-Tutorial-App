@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
 
 	<h1 class="form-signin-heading">Add a Page {{category.name}}</h1>
-	<form class="form-signin" id="page_form" method='post' action='/category/{{slug}}/add_page/'>
+	<form class="form-signin" id="page_form" method='post' action='/category/{{slug}}/add-page/'>
 		<h3 class="form-signin-heading">Add a Page to {{category.name}}</h3>
 		
 		{% csrf_token %}

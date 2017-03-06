@@ -5,7 +5,7 @@ from django.core.mail import EmailMessage
 from django.utils.crypto import get_random_string
 
 class UserForm(forms.ModelForm):
-	password = forms.CharField(widget=forms.PasswordInput()) #So that the password is hidden
+	password = forms.CharField(widget=forms.PasswordInput()) # So that the password is hidden
 
 	class Meta: 
 		model = User #this means create a new user using the following
