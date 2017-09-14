@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'y*-)o@*mzq((wjb03ybu+#@++@w-m)s)eiq86e74i1dn^9u2y$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True # when you have an error it will give you a log in real life it will be set to false
+DEBUG = False # when you have an error it will give you a log in real life it will be set to false
 TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = ['*', 'localhost'] # Add the versions of the urls
 
@@ -108,20 +108,20 @@ if DEBUG:
     STATIC_URL = '/static/'
     MEDIA_URL = '/media/'
 
-# if not DEBUG:
-# AWS_STORAGE_BUCKET_NAME = 'jenniferstutorialapp'
-# AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-# AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-# AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+if not DEBUG:
+AWS_STORAGE_BUCKET_NAME = 'jenniferstutorialapp'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-# STATICFILES_LOCATION = 'static'
-# STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-# STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+STATICFILES_LOCATION = 'static'
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 
-# MEDIAFILES_LOCATION = 'media'
-# DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-# MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+MEDIAFILES_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 
-# AWS_HEADERS = {
-#     'Access-Control-Allow-Origin' : '*'
-#     }
+AWS_HEADERS = {
+    'Access-Control-Allow-Origin' : '*'
+    }
