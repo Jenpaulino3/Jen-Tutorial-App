@@ -20,7 +20,7 @@ SECRET_KEY = 'y*-)o@*mzq((wjb03ybu+#@++@w-m)s)eiq86e74i1dn^9u2y$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False # when you have an error it will give you a log in real life it will be set to false
 TEMPLATE_DEBUG = True
-ALLOWED_HOSTS = ['*', 'localhost']
+ALLOWED_HOSTS = ['*', 'localhost', 'www.jenstutorialapp.herokuapp.com']
 
 # Application definition
 
